@@ -70,7 +70,31 @@
 						<?php echo date("D M n") . " <span id=\"timer\"></span>"; ?>
 						
 					</div>
-					<div class="row">Weather</div>
+					<div class="row">  
+					<div id="plemx-root"></div> 
+						<a href="http://www.theweathernetwork.com">The Weather Network</a>
+						<script type="text/javascript"> 
+						  var _plm = _plm || [];
+						  _plm.push(['_btn', 30504]); 
+						  _plm.push(['_loc','caon0696']);
+						  _plm.push(['location', document.location.host ]);
+
+						  (function(d,e,i) {
+						  if (d.getElementById(i)) return;
+						  var px = d.createElement(e);
+						  px.type = 'text/javascript';
+						  px.async = true;
+						  px.id = i;
+						  px.src = ('https:' == d.location.protocol ? 'https:' : 'http:') + '//widget.twnmm.com/js/btn/pelm.js?orig=en_ca';
+						  var s = d.getElementsByTagName('script')[0];
+
+						  var py = d.createElement('link');
+						  py.rel = 'stylesheet'
+						  py.href = ('https:' == d.location.protocol ? 'https:' : 'http:') + '//widget.twnmm.com/styles/btn/styles.css'
+
+						  s.parentNode.insertBefore(px, s);
+						  s.parentNode.insertBefore(py, s);
+						})(document, 'script', 'plmxbtn');</script></div>
 					<div class="row">News</div>
 					<div class="row"></div>
 				</div>
