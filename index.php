@@ -96,7 +96,33 @@
 						  s.parentNode.insertBefore(py, s);
 						})(document, 'script', 'plmxbtn');</script></div>
 					<div class="row">News</div>
-					<div class="row"></div>
+					<div class="row">
+						<?php
+							$url = "https://www.ttc.ca/Customer_Service/Daily_Customer_Service_Report/index.jsp";
+							libxml_use_internal_errors(true);
+							$html=file_get_contents($url);
+							
+							$dom = new DOMDocument;
+							$dom->loadHTML($html);
+							
+							$table = $dom->getElementsByTagName('tbody');
+
+							$rows = $table->getElementsByTagName('tr');
+							$cols = $rows->getElementsByTagName('td');
+
+							$key = $cols->item(0)->nodeValue; // string(3) "key"
+							$val = $cols->item(1)->nodeValue;
+
+							foreach ($dom->getElementsByTagName('tr') as $node) {
+							//echo $node->getAttribute( 'tr' ); 
+							   //echo $dom->saveHtml($node), PHP_EOL;
+							   //echo "hmmm";
+							}
+							echo $key;
+							echo $val;
+						?>
+						ending
+					</div>
 				</div>
 			</div>
 	</body>
