@@ -4,3 +4,32 @@
 	width: 100%;
 	margin: auto;
 }
+
+div.col-md-12
+{
+	padding: 0;
+}
+
+.announcements, .twitter
+{
+	border-top: 0.15em solid black;
+	background-color: #BA0202;
+	color: white;
+	padding-left: 1em;
+}
+
+#announcements 
+{
+	background-color: #BA0202;
+	color: white;
+	height: 5em;
+	padding: 0.8em;
+	
+}
+
+.footer
+{
+	background-color: #E9E9E9;
+	border-top: 0.15em solid #A7ABAC;
+	text-align: center;
+}

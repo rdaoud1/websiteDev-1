@@ -64,8 +64,8 @@
 						</div>
 					</div> <!-- end carousel -->
 					
-					<div class="row">
-					
+					<div class="row announcements">
+						<h2>Announcements</h2>
 						<div id="announcements" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner" role="listbox">
 							<?php
@@ -77,7 +77,7 @@
 									<!-- Wrapper for slides -->
 									
 									  <div class="item <?php ($counter == 0 ? print 'active' : print '');?>" >
-										<p><?php echo fgets($myfile);?><p>
+										<?php echo fgets($myfile);?>
 									  </div>								
 							<?php
 								  
@@ -88,8 +88,8 @@
 							</div>
 						</div> <!-- end announcements -->
 					</div>
-					<div class="row">
-						Twitter feed
+					<div class="row twitter">
+						<h2>Twitter feed</h2>
 					</div> <!-- end twitter feed -->
 				</div> <!-- end left col -->
 
@@ -131,5 +131,8 @@
 					<div class="row"></div>
 				</div>
 			</div>
+			<div class="row footer">
+				Toronto Transit Commission, Copyright 1997-<?php echo date("Y"); ?>
+			</div> <!-- end footer -->
 	</body>
 </html>
