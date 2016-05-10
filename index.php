@@ -17,13 +17,13 @@
 							<div id="carousel-1" class="carousel slide" data-ride="carousel">
 								<div class="carousel-inner" role="listbox">	
 									<div class="item active">
-										<img src=""/>
+										<img src="img/bus-1.jpg"/>
 									</div>
 									<div class="item">
-										<img src=""/>
+										<img src="img/bus-2.jpg"/>
 									</div>	
 									<div class="item">
-										<img src=""/>
+										<img src="img/bus-3.jpg"/>
 									</div>
 								</div>
 								<div>
@@ -44,13 +44,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="row"></div>
-					<div class="row"></div>
+					<div class="row">Scrolling news</div>
+					<div class="row">Twitter feed</div>
 				</div>
 				<div class="col-md-4">
-					<div class="row"></div>
-					<div class="row"></div>
-					<div class="row"></div>
+					<div class="row">Time and date</div>
+					<div class="row">Weather</div>
+					<div class="row">News</div>
 					<div class="row"></div>
 				</div>
 			</div>
