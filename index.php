@@ -28,7 +28,7 @@
 								<!-- Wrapper for slides -->
 								<div class="carousel-inner" role="listbox">
 								  <div class="item active">
-									<img src="img/bus-1.jpg" alt="Bus 1" width="460" height="345">
+									<img src="img/bus-1.jpg" alt="Bus 1" width="100%">
 								  </div>
 
 								  <div class="item">
@@ -79,8 +79,9 @@
 					</div>
 					
 					<div class="row twitter">
-						<h2>Twitter Feed</h2>
+						
 						<div class="twitter-feed center">
+						<h3 class="center">Twitter Feed</h3> 
 							<div class="tweet"></div>
 						</div>
 
