@@ -10,6 +10,12 @@ div.col-md-12
 	padding: 0;
 }
 
+.container
+{
+	margin: 0 auto !important;
+	width: 100%;
+}	
+
 .announcements, .twitter
 {
 	border-top: 0.15em solid black;
@@ -32,4 +38,21 @@ div.col-md-12
 	background-color: #E9E9E9;
 	border-top: 0.15em solid #A7ABAC;
 	text-align: center;
+}
+
+#scorecard 
+{
+	background-color: #BA0202;
+	color: white;
+	height: 5em;
+	padding: 0.8em;
+	
+}
+
+.scorecard
+{
+	border-top: 0.15em solid black;
+	background-color: black;
+	color: white;
+	padding-left: 1em;
 }
