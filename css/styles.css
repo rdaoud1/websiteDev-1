@@ -1,7 +1,7 @@
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img 
 {
-	width: 60%;
+	width: 55%;
 	margin: auto;
 }
 
@@ -52,11 +52,20 @@ body, html, .row, .container-fluid,
 	color: white;
 	min-height: 12%;
 	padding: 0.8em;
+	border-bottom: 0.15em solid black;
 }
 
 .twitter
 {
 	min-height: 25%;
+}
+
+.center
+{
+	margin: 0 auto !important;
+	width: 85% !important;
+	min-height: 10%;
+	border: 0 !important;
 }
 
 .scorecard
@@ -66,7 +75,7 @@ body, html, .row, .container-fluid,
 	color: white;
 	padding-left: 1em;
 	padding-top: 1em !important;
-	min-height: 25% !important;
+	min-height: 50% !important;
 }
 
 .footer
@@ -127,4 +136,52 @@ body, html, .row, .container-fluid,
 .fix
 {
 	background: white !important;
+}
+
+
+
+/* twitter feed styles */
+.twitter-feed .tweet ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #76949F;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.twitter-feed {
+	width: 100%;
+	color:black;
+	padding: 2%;
+	margin: 1% auto;
+	background: white;
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+			border-radius: 3px;
+}
+
+.twitter-feed .tweet {
+	overflow: hidden;
+	padding: 0 0 10px 0;
+}
+
+.twitter-feed ul {
+	width: 99999px;
+	height: 20%;
+}
+
+.twitter-feed ul li {
+	width: 200px;
+	height: 90%;
+	float: left;
+	border-right: 1px solid #eee;
+	padding: 0 10px 0 0;
+	margin: 0 10px 0 0;
 }
