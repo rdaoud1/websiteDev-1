@@ -77,8 +77,9 @@
 					</div>
 					
 					<div class="row twitter">
-						<h2>Twitter Feed</h2>
+						
 						<div class="twitter-feed center">
+							<h3>Twitter Feed</h3>
 							<div class="tweet"></div>
 						</div>
 
