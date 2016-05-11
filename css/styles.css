@@ -15,7 +15,6 @@
 	display: block;
 	padding-left: 0 !important;
 	margin-left: 0 !important;
-	
 }
 
 .item.active
@@ -111,13 +110,14 @@ body, html, .row, .container-fluid,
 	text-align: center;
 	font-size: 10px;
 	border-top: 3px solid #A7ABAC;
-	margin-top: -14px !important;
 	padding-top: 2px !important;
-	height: 3% !important;
+	height: 25px !important;
 	width: 100%;
 	z-index: 100 !important;
+	right: 0;
 	bottom: 0;
-	position: absolute;
+	left: 0;
+	clear: both;
 }
 
 .red
