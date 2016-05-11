@@ -20,12 +20,20 @@
 			var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
 			document.getElementById("timer").innerHTML = currentTimeString;
 		}, 1000);
+		
+		
+		$(function() {
+    $(window).resize(function() {
+        $('div:last').height($(window).height() - $('div:last').offset().top);
+    });
+    $(window).resize();
+});
 		</script>		 
 	</head>
 	<body>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-7">
+				<div class="col-md-8">
 					<div class="row">
 						<div class="col-md-12">
 							<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -60,9 +68,9 @@
 								  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 								  <span class="sr-only">Next</span>
 								</a>
-							</div>
-						</div>
-					</div> <!-- end carousel -->
+							</div><!-- end carousel -->
+						</div><!-- end carousel col -->
+					</div> <!-- end carousel row-->
 					
 					<div class="row announcements">
 						<h2>Announcements</h2>
@@ -77,7 +85,7 @@
 									<!-- Wrapper for slides -->
 									
 									  <div class="item <?php ($counter == 0 ? print 'active' : print '');?>" >
-										<?php echo fgets($myfile);?>
+										<ul><li><?php print_r (fgets($myfile));?></li></ul>
 									  </div>								
 							<?php
 								  
@@ -88,23 +96,30 @@
 							</div>
 						</div> <!-- end announcements -->
 					</div>
+					
 					<div class="row twitter">
-						<h2>Twitter feed</h2>
+						<div class="col-md-12 left-col-bg-fix">
+							<h2>Twitter Feed</h2>
+						</div>
 					</div> <!-- end twitter feed -->
+					
 				</div> <!-- end left col -->
 
-				<div class="col-md-5">
-					<div class="row">
-						<img src="img/ttc-logo.png" width="50%"/>
+				<div class="col-md-4">
+					<div class="row fix">
+						<img src="img/ttc-logo.png" class="logo" width="50%"/>
 						<br />
-						<?php echo date("D M n") . " <span id=\"timer\"></span>"; ?>
+						<div class="col-md-6 left-date"><?php print date("D M n") ?></div>
+						<div class="col-md-6 right-time"><span id="timer"></span></div>
+						
 					</div> <!-- end time and date -->
-					<div class="row"> <!-- begin Forcast -->  
-					<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" min-width="500" src="http://forecast.io/embed/#lat=42.3583&lon=-71.0603&name=Toronto&color=#00aaff&font=Georgia&units=ca"> </iframe>
+					
+					<div class="row fix"> <!-- begin Forcast -->  
+						<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" min-width="500" src="http://forecast.io/embed/#lat=42.3583&lon=-71.0603&name=Toronto&color=#00aaff&font=Georgia&units=ca"> </iframe>
 					</div> <!-- end Forcast -->
-					<div class="row">
-						News
-					</div> <!-- end news -->
+					
+					<div class="row"></div> <!-- end news -->
+					
 					<div class="row scorecard"> <!-- Begin scorecard -->  
 						<?php
 							$url = "https://www.ttc.ca/Customer_Service/Daily_Customer_Service_Report/index.jsp";
@@ -128,25 +143,38 @@
 								$i = $i + 1;
 								$j = $i % count($tableData) == 0 ? $j + 1 : $j;
 							}
-
+							
 							for($i = 0; $i < 4; $i++)
 							{
-								?>
-								<p> Line : <?php print_r ($tableDetail[$i][1]); ?> </p>
-								<p> Target : <?php print_r ($tableDetail[$i][3]); ?> </p>
-								<p> Actual : <?php print_r ($tableDetail[$i][4]); ?> </p>
+						?>
+								<div class="col-sm-6">
+									<p> <?php print_r ($tableDetail[$i][1]); ?> </p>
+									<p> Target : <?php print_r ($tableDetail[$i][3]); ?> </p>
+									<?php
+										$diff = $tableDetail[$i][4] - $tableDetail[$i][3]; // actual - target
+									?>
+									<p> Actual : 
+										<?php 
+											if($diff >=  0)
+												print_r ("<span class=\"green\">" . $tableDetail[$i][4] . "</span>");
+											else
+												print_r ("<span class=\"red\">" . $tableDetail[$i][4] . "</span>");  
+										?>
+										<br /><br /><br />
+									</p>
+								</div>
 								<?php
 							}
 
-						?>
-						</div>
-					</div> <!-- End scorecard -->  
-					
+								?>
+					</div> <!-- End scorecard --> 
 					<div class="row"></div>
-				</div>
+				</div> <!-- End right column -->
 			</div>
+			<div class="row"></div>
 			<div class="row footer">
-				Toronto Transit Commission, Copyright 1997-<?php echo date("Y"); ?>
+				Toronto Transit Commission, Copyright 1997-<?php print date("Y"); ?>
 			</div> <!-- end footer -->
+		</div>
 	</body>
 </html>
