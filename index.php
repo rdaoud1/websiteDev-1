@@ -16,7 +16,6 @@
 			<div class="row">
 				<div class="col-md-8">
 					<div class="row">
-						<div class="col-md-12">
 							<div id="myCarousel" class="carousel slide" data-ride="carousel">
 								<!-- Indicators -->
 								<ol class="carousel-indicators">
@@ -28,15 +27,15 @@
 								<!-- Wrapper for slides -->
 								<div class="carousel-inner" role="listbox">
 								  <div class="item active">
-									<img src="img/bus-1.jpg" alt="Bus 1" width="460" height="345">
+									<img src="img/bus-1.jpg" alt="Bus 1"/>
 								  </div>
 
 								  <div class="item">
-									<img src="img/bus-2.jpg" alt="Bus 2" width="460" height="345">
+									<img src="img/bus-2.jpg" alt="Bus 2"/>
 								  </div>
 								
 								  <div class="item">
-									<img src="img/bus-3.jpg" alt="Bus 3" width="460" height="345">
+									<img src="img/bus-3.jpg" alt="Bus 3"/>
 								  </div>
 								</div>
 
@@ -50,7 +49,6 @@
 								  <span class="sr-only">Next</span>
 								</a>
 							</div><!-- end carousel -->
-						</div><!-- end carousel col -->
 					</div> <!-- end carousel row-->
 					
 					<div class="row announcements">

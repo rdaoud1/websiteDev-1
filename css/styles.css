@@ -1,8 +1,21 @@
+#myCarousel 
+{
+	height: 350px;
+    width: 100%;
+    background-color: red;
+    float: left;
+    overflow: hidden;
+    margin: 0;
+}
+
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img 
 {
-	width: 40%;
-	margin: auto;
+	width: 100%;
+	display: block;
+	padding-left: 0 !important;
+	margin-left: 0 !important;
+	
 }
 
 .item.active
