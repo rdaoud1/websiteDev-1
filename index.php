@@ -1,34 +1,15 @@
 <html>
 	<head>
 		<meta charset=""utf-8" />
-		<title></title>
+		<title>TTC Dashboard</title>
 		<link rel="stylesheet" href="css/styles.css" />
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<script>
-		setInterval(function() {
-			var currentTime = new Date ( );    
-			var currentHours = currentTime.getHours ( );   
-			var currentMinutes = currentTime.getMinutes ( );   
-			var currentSeconds = currentTime.getSeconds ( );
-			currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;   
-			currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;    
-			var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";    
-			currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;    
-			currentHours = ( currentHours == 0 ) ? 12 : currentHours;    
-			var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
-			document.getElementById("timer").innerHTML = currentTimeString;
-		}, 1000);
-		
-		
-		$(function() {
-    $(window).resize(function() {
-        $('div:last').height($(window).height() - $('div:last').offset().top);
-    });
-    $(window).resize();
-});
-		</script>		 
+		<script src="js/jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="tweetie.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>			
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -97,10 +78,28 @@
 						</div> <!-- end announcements -->
 					</div>
 					
-					<div class="row twitter">
-						<div class="col-md-12 left-col-bg-fix">
-							<h2>Twitter Feed</h2>
+					<div class="row twitter center">					
+						<div class="twitter-feed">
+							<div class="tweet"></div>
 						</div>
+
+						<script type="text/javascript">
+							$('.twitter-feed .tweet').twittie({
+								username: 'TTCnotices',
+								list: '',
+								dateFormat: '%b. %d, %Y',
+								template: '<strong class="date">{{date}}</strong> - {{screen_name}} {{tweet}}',
+								count: 10
+							}, function () {
+								setInterval(function() {
+									var item = $('.twitter-feed .tweet ul').find('li:first');
+
+									item.animate( {marginLeft: '-220px', 'opacity': '0'}, 500, function() {
+										$(this).detach().appendTo('.twitter-feed .tweet ul').removeAttr('style');
+									});
+								}, 5000);
+							});
+						</script>
 					</div> <!-- end twitter feed -->
 					
 				</div> <!-- end left col -->
