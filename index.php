@@ -148,7 +148,8 @@
 							{
 						?>
 								<div class="col-sm-6">
-									<p> <?php print_r ($tableDetail[$i][1]); ?> </p>
+									<p><?php echo "<img src=\"img/line-" . ($i + 1) . ".png\"/>"; ?> 
+									 <?php print_r ($tableDetail[$i][1]); ?> </p>
 									<p> Target : <?php print_r ($tableDetail[$i][3]); ?> </p>
 									<?php
 										$diff = $tableDetail[$i][4] - $tableDetail[$i][3]; // actual - target
