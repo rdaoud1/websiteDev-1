@@ -78,8 +78,9 @@
 						</div> <!-- end announcements -->
 					</div>
 					
-					<div class="row twitter center">					
-						<div class="twitter-feed">
+					<div class="row twitter">
+						<h2>Twitter Feed</h2>
+						<div class="twitter-feed center">
 							<div class="tweet"></div>
 						</div>
 
