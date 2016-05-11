@@ -1,7 +1,7 @@
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img 
 {
-	width: 50%;
+	width: 40%;
 	margin: auto;
 }
 
@@ -20,11 +20,12 @@ body
 	background: #BA0202 !important;
 }
 
-h2 
+div h2
 { 
-	padding-left: 1em;
+	padding-left: 1em !important;
 	color: black !important;
 	font-size: 1.65em !important;
+	font-weight: bold;
 }
 
 body, html, .row, .container-fluid, 
@@ -46,7 +47,6 @@ body, html, .row, .container-fluid,
 {
 	border-top: 0.15em solid black;
 	background-color: #BA0202;
-	color: white;
 	padding-left: 1em;
 }
 
@@ -62,7 +62,7 @@ body, html, .row, .container-fluid,
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1 );
 	/*background-color: #BA0202;*/
 	color: black;
-	min-height: 18%;
+	min-height: 200px;
 	font-size: 2em;
 	padding: 0.8em;
 	border-bottom: 0.15em solid black;
@@ -117,7 +117,7 @@ body, html, .row, .container-fluid,
 .green
 {
 	font-weight: bold;
-	color: green;
+	color: lawngreen;
 }
 
 .logo
@@ -179,14 +179,14 @@ a:hover {
 	margin: 1% auto;
 	background: white;
 	
-	-webkit-border-radius: 5px;
-	   -moz-border-radius: 5px;
-			border-radius: 5px;
+	-webkit-border-radius: 15px;
+	   -moz-border-radius: 15px;
+			border-radius: 15px;
 }
 
 .twitter-feed .tweet {
 	overflow: hidden;
-	padding: 0 0 10px 0;
+	padding: 0 0 5px 0;
 }
 
 .twitter-feed ul {
@@ -196,7 +196,6 @@ a:hover {
 
 .twitter-feed ul li {
 	width: 250px;
-	height: 80%;
 	float: left;
 	border-right: 1px solid #eee;
 	padding: 0 10px 0 0;
