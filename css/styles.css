@@ -1,26 +1,6 @@
-#myCarousel 
-{
-	height: 250px;
-    width: 100%;
-    background-color: red;
-    float: left;
-    overflow: hidden;
-    margin: 0;
-}
-
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img 
-{
-	width: 100%;
-	display: block;
-	padding: 0 !important;
-	margin: -125px auto !important;
-}
-
-.item.active
-{
-	padding-left: 1em;
-}
+/********************/
+/* general settings */
+/********************/
 html 
 { 
 	height: 100%; 
@@ -43,9 +23,37 @@ h2
 
 h3
 {
-	text-align: center;
-	text-decoration: underline;
+	font-size: 1.4em !important;
 	margin: 2px !important;
+	font-weight: bold !important;
+	margin-bottom: 0.6em !important;
+}
+
+h4
+{
+	color: white;
+	font-size: 1em;
+	text-align: center;
+	line-height: 2em;
+	width: 100%;
+	border-top: 0.25em solid #BA0202;
+	border-bottom: 0.25em solid #BA0202;
+	padding: 0.25em 0;
+	margin-top: 0 !important;
+}
+
+h5
+{
+	font-size: 2em !important;
+	color: white !important;
+	padding: 0.5em 0 0 0.5em !important;
+	margin: 0 !important;
+}
+
+ul, li
+{
+	padding-top: 10px;
+	vertical-align: middle;
 }
 
 body, html, .row, .container-fluid, 
@@ -57,12 +65,56 @@ body, html, .row, .container-fluid,
 	margin-bottom: 0 !important;
 	padding: 0 !important;
 }
+/* END general settings */
 
-#myCarousel
+
+
+
+
+/*********************/
+/* carousel settings */
+/*********************/
+#myCarousel 
 {
+	height: 250px;
 	min-height: 50%;
+    width: 100%;
+    background-color: red;
+    float: left;
+    overflow: hidden;
+    margin: 0;
 }
 
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img 
+{
+	width: 100%;
+	display: block;
+	padding: 0 !important;
+	margin: -125px auto !important;
+}
+
+.item.active
+{
+	padding-left: 1em;
+}
+
+	/* carousel positioning fix */
+	.col-md-8, .carousel-control, 
+	.carousel-inner > .item
+	{
+		margin: 0 !important;
+		padding: 0;
+	}
+/* END carousel settings */
+
+
+
+
+
+/******************************/
+/* dashboard section settings */
+/******************************/
 .announcements 
 {
 	background: rgba(179,220,237,1);
@@ -84,19 +136,10 @@ body, html, .row, .container-fluid,
 	padding-left: 1em;
 }
 
-.twitter
+.news
 {
-	margin-top: 1% !important;
-	min-height: 25%;
-}
-
-.center
-{
-	margin: 5px auto !important;
-	width: 85% !important;
-	min-height: 5%;
-	border: 0 !important;
-	text-align: center;
+	height: 175px;
+	background: #BA0202;
 }
 
 .scorecard
@@ -109,6 +152,27 @@ body, html, .row, .container-fluid,
 	min-height: 40% !important;
 	font-size: 1.1em !important;
 }
+	/* scorecard settings */
+	.red
+	{
+		font-weight: bold;
+		text-decoration: underline;
+		color: red;
+	}
+
+	.green
+	{
+		font-weight: bold;
+		color: lawngreen;
+	}
+
+
+	.col-lg-6
+	{
+		min-height: 80px !important;
+		margin-bottom: 5px !important;
+	}
+	/* END scorecard settings */
 
 .footer
 {
@@ -126,23 +190,17 @@ body, html, .row, .container-fluid,
 	clear: both;
 }
 
-.red
-{
-	font-weight: bold;
-	text-decoration: underline;
-	color: red;
-}
 
-.green
-{
-	font-weight: bold;
-	color: lawngreen;
-}
 
+
+
+/********************************/
+/* time, date, weather settings */
+/********************************/
 .logo
 {
 	margin: 0 auto;
-	width: 50%;
+	width: 30%;
 	text-align: center;
 	display: block;
 	padding-top: 1em;
@@ -151,9 +209,10 @@ body, html, .row, .container-fluid,
 .right-time, .left-date
 {
 	font-weight: bold;
-	font-size: 2.5em;
+	font-size: 2em;
 	border-bottom: 0.1em solid black;
-	margin-bottom: 0.5em;
+	/*margin-bottom: 0.5em;*/
+	min-width: 300px;
 }
 
 .right-time
@@ -174,7 +233,17 @@ body, html, .row, .container-fluid,
 
 
 
-/* twitter feed styles */
+
+
+/*************************/
+/* twitter feed settings */
+/*************************/
+.twitter
+{
+	margin: 0 auto;
+	width: 9em;
+}
+
 .twitter-feed .tweet ul {
 	list-style: none;
 	margin: 0;
@@ -194,13 +263,9 @@ a:hover {
 	width: 100%;
 	color:black;
 	font-size: 1.2em;
-	padding: 1% 2% 0% 2%;
-	margin: 1% auto;
+	padding: 10px 2% 0% 2%;
+	margin: 0;
 	background: white;
-	
-	-webkit-border-radius: 15px;
-	   -moz-border-radius: 15px;
-			border-radius: 15px;
 }
 
 .twitter-feed .tweet {
@@ -219,17 +284,4 @@ a:hover {
 	border-right: 1px solid #eee;
 	padding: 0 10px 0 0;
 	margin: 0 10px 0 0;
-}
-
-/* carousel positioning fix */
-.col-md-8, .carousel-control, .carousel-inner > .item
-{
-	margin: 0 !important;
-	padding: 0;
-}
-
-.col-lg-6
-{
-	min-height: 175px !important;
-	margin-bottom: 5px !important;
 }

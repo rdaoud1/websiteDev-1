@@ -10,56 +10,51 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="tweetie.js"></script>
-		<script type="text/javascript" src="js/scripts.js"></script>			
-		<script>
-		
-  
-  
-		</script>		
+		<script type="text/javascript" src="js/scripts.js"></script>	
 	</head>
 	<body>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8">
 					<div class="row">
-							<div id="myCarousel" class="carousel slide" data-ride="carousel">
-								<!-- Indicators -->
-								<ol class="carousel-indicators">
-								  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-								  <li data-target="#myCarousel" data-slide-to="1"></li>
-								  <li data-target="#myCarousel" data-slide-to="2"></li>
-								</ol>
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+							  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							  <li data-target="#myCarousel" data-slide-to="1"></li>
+							  <li data-target="#myCarousel" data-slide-to="2"></li>
+							</ol>
 
-								<!-- Wrapper for slides -->
-								<div class="carousel-inner" role="listbox">
-								  <div class="item active">
-									<img src="img/bus-1.jpg" alt="Bus 1"/>
-								  </div>
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner" role="listbox">
+							  <div class="item active">
+								<img src="img/bus-1.jpg" alt="Bus 1"/>
+							  </div>
 
-								  <div class="item">
-									<img src="img/bus-2.jpg" alt="Bus 2"/>
-								  </div>
-								
-								  <div class="item">
-									<img src="img/bus-3.jpg" alt="Bus 3"/>
-								  </div>
-								</div>
+							  <div class="item">
+								<img src="img/bus-2.jpg" alt="Bus 2"/>
+							  </div>
+							
+							  <div class="item">
+								<img src="img/bus-3.jpg" alt="Bus 3"/>
+							  </div>
+							</div>
 
-								<!-- Left and right controls -->
-								<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-								  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-								  <span class="sr-only">Previous</span>
-								</a>
-								<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-								  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-								  <span class="sr-only">Next</span>
-								</a>
-							</div><!-- end carousel -->
+							<!-- Left and right controls -->
+							<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+							  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							  <span class="sr-only">Previous</span>
+							</a>
+							<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+							  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							  <span class="sr-only">Next</span>
+							</a>
+						</div><!-- end carousel -->
 					</div> <!-- end carousel row-->
 					
 					<div class="row announcements">
-						<h2>Announcements</h2>
-						<div id="announcements" class="carousel slide" data-ride="carousel">
+						<!--<h2>Announcements</h2>-->
+						<div id="announcements" class="carousel slide" data-ride="carousel" data-interval="75000">
 							<div class="carousel-inner" role="listbox">
 							<?php
 								$counter=0;
@@ -82,11 +77,12 @@
 						</div> <!-- end announcements -->
 					</div>
 					
-					<div class="row twitter">
+					<div class="row">
 						
-						<div class="twitter-feed center">
-						<h3 class="center">Twitter Feed</h3> 
-							<div class="tweet"></div>
+						<div class="twitter-feed">
+						<!-- <h3 class="">Twitter Feed</h3> -->
+							<div class="col-md-2"><img src="img/twitter.png" class="twitter"/></div>
+							<div class="tweet col-md-10"></div>
 						</div>
 
 						<script type="text/javascript">
@@ -94,7 +90,7 @@
 								username: 'TTCnotices',
 								list: '',
 								dateFormat: '%b. %d, %Y',
-								template: '<strong class="date">{{date}}</strong> - {{screen_name}} {{tweet}}',
+								template: '<strong class="date">{{date}}</strong> - {{tweet}}',
 								count: 10
 							}, function () {
 								setInterval(function() {
@@ -103,7 +99,7 @@
 									item.animate( {marginLeft: '-220px', 'opacity': '0'}, 500, function() {
 										$(this).detach().appendTo('.twitter-feed .tweet ul').removeAttr('style');
 									});
-								}, 5000);
+								}, 10000);
 							});
 						</script>
 					</div> <!-- end twitter feed -->
@@ -123,9 +119,12 @@
 						<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" min-width="500" src="http://forecast.io/embed/#lat=42.3583&lon=-71.0603&name=Toronto&color=#00aaff&font=Georgia&units=ca"> </iframe>
 					</div> <!-- end Forcast -->
 					
-					<div class="row"></div> <!-- end news -->
+					<div class="row news"> <!-- begin news -->
+						<h5>News</h5>
+					</div> <!-- end news -->
 					
 					<div class="row scorecard" id="scorecard"> <!-- Begin scorecard -->  
+						<h4>Daily Customer Scorecard</h4>
 						<?php
 							$url = "https://www.ttc.ca/Customer_Service/Daily_Customer_Service_Report/index.jsp";
 							libxml_use_internal_errors(true);

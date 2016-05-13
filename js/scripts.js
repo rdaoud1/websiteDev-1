@@ -45,11 +45,27 @@
 		var scorecard = $(".scorecard").height();
 		var dateTime = $(".date-time").height();
 		var forecast = $(".forecast").height();
-		var diff = doc - scorecard - dateTime - forecast;
-		var newH = diff + scorecard
-  
+		var news = $(".news").height();
+		var diff = doc - scorecard - dateTime - forecast - news;
+		var newH = diff + scorecard;
+		
 		$(".scorecard").css({'height' : newH });
+		
+		
+		// twitter feed resize to the bottom of the page
+		var doc = $(document).height();
+		var carousel = $("#myCarousel").height();
+		var announcements = $("#announcements").height();
+		var twitter = $(".twitter-feed").height();
+		var footer = $(".footer").height();
+		var diff2 = doc - carousel - announcements - twitter - footer*3;
+		var newH2 = diff2 + twitter;
+  
+		$(".twitter-feed").css({'height' : newH2 });
+		
 		
 		// refresh page if window is resized
 		$(window).resize(function(){location.reload();});
-  });
+		
+	});
+	
