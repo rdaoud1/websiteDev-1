@@ -38,3 +38,18 @@
 
 		return t;
 	}(document, "script", "twitter-wjs"));
+	
+	$( document ).ready(function() {
+		// scorecard resize to the bottom of the page
+		var doc = $(document).height();
+		var scorecard = $(".scorecard").height();
+		var dateTime = $(".date-time").height();
+		var forecast = $(".forecast").height();
+		var diff = doc - scorecard - dateTime - forecast;
+		var newH = diff + scorecard
+  
+		$(".scorecard").css({'height' : newH });
+		
+		// refresh page if window is resized
+		$(window).resize(function(){location.reload();});
+  });

@@ -7,9 +7,15 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script src="js/jquery-2.2.3.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="tweetie.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>			
+		<script>
+		
+  
+  
+		</script>		
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -105,7 +111,7 @@
 				</div> <!-- end left col -->
 
 				<div class="col-md-4">
-					<div class="row fix">
+					<div class="row white-bg date-time">
 						<img src="img/ttc-logo.png" class="logo" width="50%"/>
 						<br />
 						<div class="col-md-6 left-date"><?php print date("D M n") ?></div>
@@ -113,13 +119,13 @@
 						
 					</div> <!-- end time and date -->
 					
-					<div class="row fix"> <!-- begin Forcast -->  
+					<div class="row white-bg forecast"> <!-- begin Forcast -->  
 						<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" min-width="500" src="http://forecast.io/embed/#lat=42.3583&lon=-71.0603&name=Toronto&color=#00aaff&font=Georgia&units=ca"> </iframe>
 					</div> <!-- end Forcast -->
 					
 					<div class="row"></div> <!-- end news -->
 					
-					<div class="row scorecard"> <!-- Begin scorecard -->  
+					<div class="row scorecard" id="scorecard"> <!-- Begin scorecard -->  
 						<?php
 							$url = "https://www.ttc.ca/Customer_Service/Daily_Customer_Service_Report/index.jsp";
 							libxml_use_internal_errors(true);
@@ -146,7 +152,7 @@
 							for($i = 0; $i < 4; $i++)
 							{
 						?>
-								<div class="col-sm-6">
+								<div class="col-lg-6">
 									<p><?php echo "<img src=\"img/line-" . ($i + 1) . ".png\"/>"; ?> 
 									 <?php print_r ($tableDetail[$i][1]); ?> </p>
 									<p> Target : <?php print_r ($tableDetail[$i][3]); ?> </p>
@@ -171,8 +177,7 @@
 					<div class="row"></div>
 				</div> <!-- End right column -->
 			</div>
-			<div class="row"></div>
-			<div class="row footer">
+			<div class="footer" id="footer">
 				Toronto Transit Commission, Copyright 1997-<?php print date("Y"); ?>
 			</div> <!-- end footer -->
 		</div>
