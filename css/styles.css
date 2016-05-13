@@ -112,8 +112,7 @@ body, html, .row, .container-fluid,
 
 .footer
 {
-	display: none;
-	/*
+	
 	background-color: #E9E9E9;
 	text-align: center;
 	font-size: 10px;
@@ -122,10 +121,9 @@ body, html, .row, .container-fluid,
 	height: 25px !important;
 	width: 100%;
 	z-index: 100 !important;
-	right: 0;
+	position: fixed;
 	bottom: 0;
-	left: 0;
-	clear: both;*/
+	clear: both;
 }
 
 .red
@@ -169,7 +167,7 @@ body, html, .row, .container-fluid,
 	padding-left: 2.75em !important;
 }
 
-.fix
+.white-bg
 {
 	background: white !important;
 }
@@ -212,7 +210,7 @@ a:hover {
 
 .twitter-feed ul {
 	width: 99999px;
-	height: 20%;
+	height: 150px;
 }
 
 .twitter-feed ul li {
@@ -221,4 +219,17 @@ a:hover {
 	border-right: 1px solid #eee;
 	padding: 0 10px 0 0;
 	margin: 0 10px 0 0;
+}
+
+/* carousel positioning fix */
+.col-md-8, .carousel-control, .carousel-inner > .item
+{
+	margin: 0 !important;
+	padding: 0;
+}
+
+.col-lg-6
+{
+	min-height: 175px !important;
+	margin-bottom: 5px !important;
 }
