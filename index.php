@@ -27,27 +27,46 @@
 
 							<!-- Wrapper for slides -->
 							<div class="carousel-inner" role="listbox">
-							  <div class="item active">
-								<img src="img/bus-1.jpg" alt="Bus 1"/>
-							  </div>
-
-							  <div class="item">
-								<img src="img/bus-2.jpg" alt="Bus 2"/>
-							  </div>
+								<div class="item active">
+									<img src="img/bus-1.jpg" alt="Bus 1"/>
+								
+									<div class="container">
+										<div class="carousel-caption">
+											<h1>Awesome TTC Bus 1</h1>
+											<p class="lead">This is a follow up caption</p>
+										</div>
+									</div>
+								</div>
+								
+								<div class="item">
+									<img src="img/bus-2.jpg" alt="Bus 2"/>
+									<div class="container">
+										<div class="carousel-caption">
+											<h1>Awesome TTC Bus 2</h1>
+											<p class="lead">This is a follow up caption</p>
+										</div>
+									</div>
+								</div>
 							
-							  <div class="item">
-								<img src="img/bus-3.jpg" alt="Bus 3"/>
-							  </div>
+								<div class="item">
+									<img src="img/bus-3.jpg" alt="Bus 3"/>
+									<div class="container">
+										<div class="carousel-caption">
+											<h1>Awesome TTC Bus 3</h1>
+											<p class="lead">This is a follow up caption</p>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- Left and right controls -->
 							<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-							  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-							  <span class="sr-only">Previous</span>
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
 							</a>
 							<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-							  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							  <span class="sr-only">Next</span>
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
 							</a>
 						</div><!-- end carousel -->
 					</div> <!-- end carousel row-->
@@ -121,6 +140,7 @@
 					
 					<div class="row news"> <!-- begin news -->
 						<h5>News</h5>
+						
 					</div> <!-- end news -->
 					
 					<div class="row scorecard" id="scorecard"> <!-- Begin scorecard -->  
