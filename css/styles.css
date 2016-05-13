@@ -279,9 +279,10 @@ a:hover {
 }
 
 .twitter-feed ul li {
-	width: 250px;
+	width: 560px;
 	float: left;
 	border-right: 1px solid #eee;
 	padding: 0 10px 0 0;
 	margin: 0 10px 0 0;
+  font-size: 2em;
 }
