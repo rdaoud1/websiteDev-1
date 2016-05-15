@@ -123,13 +123,19 @@ body, html, .row, .container-fluid,
 	padding: 0 0 0 50px;
 }
 
-	/* carousel positioning fix */
-	.col-md-8, .carousel-control, 
-	.carousel-inner > .item
-	{
-		margin: 0 !important;
-		padding: 0;
-	}
+.col-md-8
+{
+  border-right: 5px solid black;
+}
+
+
+/* carousel positioning fix */
+.col-md-8, .carousel-control, 
+.carousel-inner > .item
+{
+  margin: 0 !important;
+  padding: 0;
+}
 /* END carousel settings */
 
 
@@ -169,7 +175,7 @@ body, html, .row, .container-fluid,
 .scorecard
 {
 	border-top: 0.15em solid black;
-	background-color: black;
+	background-color: #0d0d0d;
 	color: white;
 	padding-left: 1em;
 	padding-top: 1em !important;
@@ -259,6 +265,7 @@ body, html, .row, .container-fluid,
 
 
 
+
 /*************************/
 /* twitter feed settings */
 /*************************/
@@ -303,10 +310,10 @@ a:hover {
 }
 
 .twitter-feed ul li {
-	width: 560px;
+	width: 500px;
 	float: left;
 	border-right: 1px solid #eee;
 	padding: 0 10px 0 0;
 	margin: 0 10px 0 0;
-  font-size: 2em;
+  font-size: 1.5em;
 }
