@@ -1,13 +1,14 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset=""utf-8" />
+		<meta charset="UTF-8">
 		<title>TTC Dashboard</title>
-		<link rel="stylesheet" href="css/styles.css" />
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<script src="js/jquery-2.2.3.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="css/styles.css" />
+		<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="tweetie.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>	
@@ -73,7 +74,7 @@
 					
 					<div class="row announcements">
 						<!--<h2>Announcements</h2>-->
-						<div id="announcements" class="carousel slide" data-ride="carousel" data-interval="75000">
+						<div id="announcements" class="carousel slide" data-ride="carousel" data-interval="7500">
 							<div class="carousel-inner" role="listbox">
 							<?php
 								$counter=0;
@@ -100,7 +101,7 @@
 						
 						<div class="twitter-feed">
 						<!-- <h3 class="">Twitter Feed</h3> -->
-							<div class="col-md-2"><img src="img/twitter.png" class="twitter"/></div>
+							<div class="col-md-2"><img src="img/twitter.png" alt="TTCnotices" class="twitter"/></div>
 							<div class="tweet col-md-10"></div>
 						</div>
 
@@ -127,7 +128,7 @@
 
 				<div class="col-md-4">
 					<div class="row white-bg date-time">
-						<img src="img/ttc-logo.png" class="logo" width="50%"/>
+						<img src="img/ttc-logo.png" class="logo" alt="TTC Logo" width="50%"/>
 						<br />
 						<div class="col-md-6 left-date"><?php print date("D M n") ?></div>
 						<div class="col-md-6 right-time"><span id="timer"></span></div>
@@ -172,7 +173,7 @@
 							{
 						?>
 								<div class="col-lg-6">
-									<p><?php echo "<img src=\"img/line-" . ($i + 1) . ".png\"/>"; ?> 
+									<p><?php echo "<img alt=\"line\" src=\"img/line-" . ($i + 1) . ".png\"/>"; ?> 
 									 <?php print_r ($tableDetail[$i][1]); ?> </p>
 									<p> Target : <?php print_r ($tableDetail[$i][3]); ?> </p>
 									<?php
