@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_POST['submit'])){
 	
 	// Get array of all source files
@@ -6,6 +7,7 @@ if(isset($_POST['submit'])){
 	// Identify directories
 	$source = "uploaded/";
 	$destination = "uploaded/old/";
+		
 	// Cycle through all source files
 	foreach ($files as $file) {
 	  if (( $file != '.' ) && ( $file != '..' )) {
@@ -15,9 +17,11 @@ if(isset($_POST['submit'])){
 		  }
 	  }
 	}
+	
 	// Delete all successfully-copied files
 	foreach ($delete as $file) {
-	  unlink($file);
+	  if(file_exists($file))
+		unlink($file);
 	}
 	
 	
@@ -50,17 +54,40 @@ if(isset($_POST['submit'])){
         }
     }
 
+	if(($key = array_search('.', $files)) !== false) {
+		unset($files[$key]);
+	}
+	
+	if(($key = array_search('..', $files)) !== false) {
+		unset($files[$key]);
+	}
+	
+	if(($key = array_search('old', $files)) !== false) {
+		unset($files[$key]);
+	}
+	
     //show success message
     ?>
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script>
 			$(window).load(function(){
+				$('.modal-body').append('<?php
+				echo "<h6>Files modified:</h6>";    
+				if(is_array($files)){
+					echo "<ul>";
+					foreach($files as $file){
+						echo "<li>$file</li>";
+					}
+					echo "</ul>";
+				}
+				?>');
 				$('#success').modal('show');
 			});
 		</script>
-		<?php   
+	<?php   
    
+	
 }
 ?>
 <!DOCTYPE html>
@@ -68,6 +95,7 @@ if(isset($_POST['submit'])){
 	<head>
 		<title>Update Main News</title>
 		<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/sidemenu.css">
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<style>
@@ -89,7 +117,11 @@ if(isset($_POST['submit'])){
 		</style>
 	</head>
 	<body>
-		<div class="container">
+	
+		<?php include_once 'sidemenu.php'; ?>
+	
+		<div class="container">		
+			
 			<h1>Update Main News</h1>
 			<br>
 			<form action="" enctype="multipart/form-data" method="post">
@@ -99,7 +131,7 @@ if(isset($_POST['submit'])){
 					<input id='upload' name="upload[]" type="file" multiple="multiple" />
 				</div>
 
-				<p><input type="submit" name="submit" value="Submit"></p>
+				<p><input type="submit" class="btn btn-lg btn-success pull-right" name="submit" value="Upload"></p>
 
 			</form>
 						

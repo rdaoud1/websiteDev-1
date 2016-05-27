@@ -28,36 +28,25 @@
 
 							<!-- Wrapper for slides -->
 							<div class="carousel-inner" role="listbox">
-								<div class="item active">
-									<img src="img/bus-1.jpg" alt="Bus 1"/>
+								<?php
+									$dirname = "uploaded/";
+									$images = glob($dirname."*.jpg");
+									$counter = 0;
+									
+									foreach($images as $image) 
+									{
+										$counter++;
+										if ($counter == 1)
+										{
+											echo '<div class="item active"><img src="' . $image . '" alt="Bus 1"/></div>';
+										}
+										else 
+										{
+											echo '<div class="item"><img src="' . $image . '" alt="Bus 1"/></div>';
+										}
+									}
+								?>
 								
-									<div class="container">
-										<div class="carousel-caption">
-											<h1>Awesome TTC Bus 1</h1>
-											<p class="lead">This is a follow up caption</p>
-										</div>
-									</div>
-								</div>
-								
-								<div class="item">
-									<img src="img/bus-2.jpg" alt="Bus 2"/>
-									<div class="container">
-										<div class="carousel-caption">
-											<h1>Awesome TTC Bus 2</h1>
-											<p class="lead">This is a follow up caption</p>
-										</div>
-									</div>
-								</div>
-							
-								<div class="item">
-									<img src="img/bus-3.jpg" alt="Bus 3"/>
-									<div class="container">
-										<div class="carousel-caption">
-											<h1>Awesome TTC Bus 3</h1>
-											<p class="lead">This is a follow up caption</p>
-										</div>
-									</div>
-								</div>
 							</div>
 
 							<!-- Left and right controls -->

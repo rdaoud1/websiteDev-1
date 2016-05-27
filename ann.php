@@ -36,6 +36,7 @@ if($_GET)
 	<head>
 		<title>Update Announcements</title>
 		<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/sidemenu.css">
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<style>
@@ -65,7 +66,11 @@ if($_GET)
 		</style>
 	</head>
 	<body>
+		
+		<?php include_once 'sidemenu.php'; ?>
+	
 		<div class="container">
+		
 			<h1>Update Announcements</h1>
 			<br>
 			<form action="ann.php" method="">
