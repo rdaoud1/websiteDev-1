@@ -14,7 +14,7 @@
 				<li><a href="main.php">Main News<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a></li>
 				<li><a href="ann.php">Announcements<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-bullhorn"></span></a></li>
 				<li><a href="ann.php">Safety Talk<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-info-sign"></span></a></li>
-				<li><a href="ann.php">Key Notes<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tag"></span></a></li>
+				<li><a href="keynotes.php">Key Notes<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tag"></span></a></li>
 			</ul>
 		</div>
 	</div>
