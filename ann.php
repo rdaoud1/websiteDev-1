@@ -39,6 +39,7 @@ if($_GET)
 		<link type="text/css" rel="stylesheet" href="css/sidemenu.css">
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="ckeditor/ckeditor.js"></script>
 		<style>
 			#announcements
 			{
@@ -83,6 +84,12 @@ if($_GET)
 						}
 						fclose($fh);
 					?></textarea>
+
+					<script>
+						// Replace the <textarea id="editor1"> with a CKEditor
+						// instance, using default configuration.
+						CKEDITOR.replace( 'announcements' );
+					</script>
 					<br/>
 					<button type="submit" class="btn btn-success btn-lg pull-right" value="Update"> Update </button>
 				</div>
