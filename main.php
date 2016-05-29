@@ -24,6 +24,7 @@
 			h1 { color: #BA0202; }
 			h6 { text-decoration: underline; font-size: 1.25em; }
 			.save-successful { background: lightgreen; }
+			.error { background: lightcoral; }
 		</style>
 		
 		<script type="text/javascript">
@@ -34,40 +35,36 @@
 				var imgpath = document.getElementById('upload').value;
 				if(imgpath == "")
 				{
-					alert("upload your image files");
+					$(document).ready(function(){
+						$('.modal-body').append("<p>Upload your image files</p>");
+						$("#myModal").modal('show');
+					});
 					return false;
 				}
 				else
 				{
+					var files = $('input[type="file"]').get(0).files;
+					var images = new Array();
 					
-					// code to get File Extension
-					var arr1 = new Array;
-					arr1 = imgpath.split("\\");
-					var len = arr1.length;
-					var img1 = arr1[len-1];
-					var filext = img1.substring(img1.lastIndexOf(".")+1);
-					// Checking Extension
-					if(filext == "jpg" || filext == "jpeg")
+					// Loop through files
+					for (var i=0; file = files[i]; i++)
 					{
-						// alert("File has been upload correctly");
-						flag = true;
-					}
-					else
-					{
-						alert("Invalid File Format Selected");
-						return false;
-					}
-				}
-				
-				if(flag == true)
-				{
-					alert(document.getElementById('upload').value);
-					$(document).ready(function(){
-						$('.modal-body').append('loooooooool');
-						$("#success").modal('show');
-					});
-        
-					return false;
+						var ext = file.name.substring(file.name.lastIndexOf(".")+1);
+						images.push(file.name);
+						// Checking Extension
+						if(ext == "jpg" || ext == "jpeg" || ext == "png" || ext == "gif")
+						{
+							$("#form").submit();
+						}
+						else
+						{							
+							$(document).ready(function(){
+								$('.modal-body').append("<p>Invalid File Format Selected</p>");
+								$("#myModal").modal('show');
+							});
+							return false;
+						}
+					}					
 				}
 			}
 			
@@ -80,7 +77,7 @@
 					} else {
 						txt = "<br><h6>Files to be uploaded:</h6>";
 						for (var i = 0; i < x.files.length; i++) {
-							txt += "<strong>" + (i+1) + ". ";
+							txt += (i+1) + ". <strong>";
 							var file = x.files[i];
 							if ('name' in file) {
 								txt += file.name + "</strong> - ";
@@ -147,7 +144,7 @@
 			<h1>Update Main News</h1>
 			<br>
 				
-			<form id="form" action="" onchange="myFunction()" onsubmit="return validate();" enctype="multipart/form-data" method="post">
+			<form id="form" action="upload.php" onchange="myFunction()" onsubmit="return validate();" enctype="multipart/form-data" method="post">
 
 				<div>
 					<label for='upload'>Add Attachments:</label>
@@ -196,12 +193,12 @@
 
 				<!-- Modal content-->
 				<div class="modal-content">
-				  <div class="modal-header">
+				  <div class="modal-header error">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
+					<h4 class="modal-title">Error <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></h4>
 				  </div>
 				  <div class="modal-body">
-					<p>Some text in the modal.</p>
+					
 				  </div>
 				  <div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
