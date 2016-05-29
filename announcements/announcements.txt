@@ -1,1 +1,2 @@
-safasfas
+This is an announcement<br />
+This is another announcement
