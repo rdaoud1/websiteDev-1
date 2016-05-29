@@ -39,25 +39,10 @@ if(isset($_POST['submit'])){
 	}
 	
 	if(count($_FILES['upload']['name']) > 0)
-	{		
-				
+	{				
         //Loop through each file
         for($i=0; $i<count($_FILES['upload']['name']); $i++) 
-		{
-			
-			//check if image is fake
-			
-			
-			//check image size
-			// if ($_FILES["upload"]["size"] > 2500000) 
-			// {
-				// echo "Sorry, your file is too large.";
-				// $uploadOk = 0;
-			// }
-			
-			//check file types
-			
-			
+		{			
 			//Get the temp file path
             $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
 
@@ -74,18 +59,47 @@ if(isset($_POST['submit'])){
                 //Upload the file into the temp dir
                 if(move_uploaded_file($tmpFilePath, $filePath)) 
 				{
-
                     $files[] = $shortname;
 					$uploaded[] = $shortname;
                     //insert into db 
                     //use $shortname for the filename
                     //use $filePath for the relative url to the file					
-                }
-            }
-        }
+                }				
+            }			
+        } // end for loop
+		
+		// *** Include the class
+		include_once("resize-class.php");
+		
+		$files = scandir("uploaded");
+		// Cycle through all source files
+		foreach ($files as $file) {
+			
+			if($file == "." || $file == ".." || $file == "old") continue;					
+
+			// *** 1) Initialise / load image
+			$resizeObj = new resize("uploaded/" . $file);
+			
+			// *** 2) Resize image (options: exact, portrait, landscape, auto, crop)
+			$resizeObj -> resizeImage(640, 480, 'crop');
+
+			// *** 3) Save image
+			$resizeObj -> saveImage("uploaded/" . $file);
+		}
 		
 		//show success message
     ?>
+<!DOCTYP html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<style>
+		.save-successful { background: lightgreen; }
+	</style>
+</head>
+<body>	
 		<!-- Success Modal -->
 		<div class="modal fade" id="success" role="dialog">
 			<div class="modal-dialog">
@@ -105,13 +119,15 @@ if(isset($_POST['submit'])){
 			</div>
 		</div>
 		
-		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-		<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script>
 			$(window).load(function(){
-				$('#success > .modal-body').append('<?php
+				$("button").click(function(){
+					window.location.replace("main.php");
+				});
+				
+				$('.modal-body').append('<?php
 				echo "<h6>Uploaded files:</h6>";    
-				if(is_array($uploaded)){
+				if(isset($uploaded) && is_array($uploaded)){
 					echo "<ul>";
 					foreach($uploaded as $file){
 						echo "<li>$file</li>";
@@ -122,6 +138,8 @@ if(isset($_POST['submit'])){
 				$('#success').modal('show');
 			});
 		</script>
+</body>
+</html>		
 	<?php
     }
 }
