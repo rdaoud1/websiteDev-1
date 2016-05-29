@@ -6,7 +6,7 @@
 		<link type="text/css" rel="stylesheet" href="css/sidemenu.css">
 		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		
+		<script src="ckeditor/ckeditor.js"></script>
 		<script type="text/javascript" src="js/bootbox.min.js"></script>
 		<style>
 			.how-to-use

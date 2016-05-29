@@ -178,9 +178,9 @@ body, html, .row, .container-fluid,
 	background-color: #0d0d0d;
 	color: white;
 	padding-left: 1em;
-	padding-top: 1em !important;
+	padding-top: 0.5em !important;
 	min-height: 40% !important;
-	font-size: 1.1em !important;
+	font-size: 1.3em !important;
 }
 	/* scorecard settings */
 	.red
@@ -201,6 +201,12 @@ body, html, .row, .container-fluid,
 	{
 		min-height: 80px !important;
 		margin-bottom: 5px !important;
+	}
+
+	.h2
+	{
+		font-size: 3em;
+		color: white;
 	}
 	/* END scorecard settings */
 
