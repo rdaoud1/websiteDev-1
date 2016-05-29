@@ -5,13 +5,15 @@
 		<title>TTC Dashboard</title>
 		<link type="text/css" rel="stylesheet" href="css/styles.css" />
 		<link type="text/css" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 		<script type="text/javascript" src="js/tweetie.js"></script>
-		<script type="text/javascript" src="js/scripts.js"></script>		
+		<script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="news/scripts/jquery.bootstrap.newsbox.min.js"></script>
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -133,55 +135,78 @@
 						
 					</div> <!-- end news -->
 					
-					<div class="row scorecard" id="scorecard"> <!-- Begin scorecard -->  
-						<h4>Daily Customer Scorecard</h4>
-						<?php
-							$url = "https://www.ttc.ca/Customer_Service/Daily_Customer_Service_Report/index.jsp";
-							libxml_use_internal_errors(true);
-							$html=file_get_contents($url);
-							$dom = new \DOMDocument;
-							$dom->loadHTML($html);
+					<div class="row scorecard" id="scorecard"> <!-- Begin scorecard -->
+                        <h4>General Keynotes</h4>
 
-							$Header = $dom->getElementsByTagName('th');
-							$Detail = $dom->getElementsByTagName('td');
-							foreach($Header as $NodeHeader) 
-							{
-								$tableData[] = trim($NodeHeader->textContent);
-							}
-							$i = 0;
-							$j = 0;
-							foreach($Detail as $sNodeDetail) 
-							{
-								//echo $sNodeDetail;
-								$tableDetail[$j][] = trim($sNodeDetail->textContent);
-								$i = $i + 1;
-								$j = $i % count($tableData) == 0 ? $j + 1 : $j;
-							}
-							
-							for($i = 0; $i < 4; $i++)
-							{
-						?>
-								<div class="col-lg-6">
-									<p><?php echo "<img alt=\"line\" src=\"img/line-" . ($i + 1) . ".png\"/>"; ?> 
-									 <?php print_r ($tableDetail[$i][1]); ?> </p>
-									<p> Target : <?php print_r ($tableDetail[$i][3]); ?> </p>
-									<?php
-										$diff = $tableDetail[$i][4] - $tableDetail[$i][3]; // actual - target
-									?>
-									<p> Actual : 
-										<?php 
-											if($diff >=  0)
-												print_r ("<span class=\"green\">" . $tableDetail[$i][4] . "</span>");
-											else
-												print_r ("<span class=\"red\">" . $tableDetail[$i][4] . "</span>");  
-										?>
-										<br /><br /><br />
-									</p>
-								</div>
-								<?php
-							}
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <ul class="demo2">
+                                        <?php
+                                        $counter=0;
+                                        $myfile = fopen("announcements/keynotes.txt", "r") or die("Unable to open file!");
+                                        // Output one line until end-of-file
+                                        while(!feof($myfile)) {
+                                        ?>
+                                            <li class="news-item"><?php print_r (fgets($myfile));?></li>
+                                        <?php
 
-								?>
+                                        $counter++;
+                                        }
+                                        fclose($myfile);
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        <!--ScoreCard Coding (Removed for now)-->
+<!--						<h4>Daily Customer Scorecard</h4>-->
+<!--						--><?php
+//							$url = "https://www.ttc.ca/Customer_Service/Daily_Customer_Service_Report/index.jsp";
+//							libxml_use_internal_errors(true);
+//							$html=file_get_contents($url);
+//							$dom = new \DOMDocument;
+//							$dom->loadHTML($html);
+//
+//							$Header = $dom->getElementsByTagName('th');
+//							$Detail = $dom->getElementsByTagName('td');
+//							foreach($Header as $NodeHeader)
+//							{
+//								$tableData[] = trim($NodeHeader->textContent);
+//							}
+//							$i = 0;
+//							$j = 0;
+//							foreach($Detail as $sNodeDetail)
+//							{
+//								//echo $sNodeDetail;
+//								$tableDetail[$j][] = trim($sNodeDetail->textContent);
+//								$i = $i + 1;
+//								$j = $i % count($tableData) == 0 ? $j + 1 : $j;
+//							}
+//
+//							for($i = 0; $i < 4; $i++)
+//							{
+//						?>
+<!--								<div class="col-lg-6">-->
+<!--									<p>--><?php //echo "<img alt=\"line\" src=\"img/line-" . ($i + 1) . ".png\"/>"; ?><!-- -->
+<!--									 --><?php //print_r ($tableDetail[$i][1]); ?><!-- </p>-->
+<!--									<p> Target : --><?php //print_r ($tableDetail[$i][3]); ?><!-- </p>-->
+<!--									--><?php
+//										$diff = $tableDetail[$i][4] - $tableDetail[$i][3]; // actual - target
+//									?>
+<!--									<p> Actual : -->
+<!--										--><?php //
+//											if($diff >=  0)
+//												print_r ("<span class=\"green\">" . $tableDetail[$i][4] . "</span>");
+//											else
+//												print_r ("<span class=\"red\">" . $tableDetail[$i][4] . "</span>");
+//										?>
+<!--										<br /><br /><br />-->
+<!--									</p>-->
+<!--								</div>-->
+<!--								--><?php
+//							}
+//
+//								?>
+
 					</div> <!-- End scorecard --> 
 					<div class="row"></div>
 				</div> <!-- End right column -->
@@ -190,5 +215,20 @@
 				Toronto Transit Commission, Copyright 1997-<?php print date("Y"); ?>
 			</div> <!-- end footer -->
 		</div>
+        <script type="text/javascript">
+            $(function () {
+                $(".demo2").bootstrapNews({
+                    newsPerPage: 9,
+                    autoplay: true,
+                    pauseOnHover: false,
+                    navigation: false,
+                    direction: 'down',
+                    newsTickerInterval: 3500,
+                    onToDo: function () {
+                        //console.log(this);
+                    }
+                });
+            });
+        </script>
 	</body>
 </html>
